@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - level2
+  - Bird
+  - Walls
+  - Cieling
+  - ScreenShake
+  - Bullet
+  - Target
+  - Level
+  - Camera
+  - ExTarget
+  - Enemy
+  - EnemyBullet
+  - HealthBar
+  - EnemyRocket
+  - Lightning
+  - Target2
+  - Player2
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - NoCollision
+  - Birds
+  - Background
+  - Layer1
+  - Layer2
+  - Layer3
+  - Layer4
+  - Target
+  - Enemy
+  - Player
+  - Projectile
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: New Layer
+    uniqueID: 811373089
+    locked: 0
