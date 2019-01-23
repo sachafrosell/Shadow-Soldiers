@@ -88,6 +88,15 @@ public class MenuController : MonoBehaviour
         eventSystem.SetSelectedGameObject(settingsButton);
     }
 
+    public void multiPlayer()
+    {
+        Instantiate(selectSound, transform.position, Quaternion.identity);
+        GameSettingsStaticController.SinglePlayer = false;
+        gameObject.SetActive(false);
+        menu2.SetActive(true);
+        eventSystem.SetSelectedGameObject(externalButton);
+    }
+
     public void SetReloadTime(float x)
     {
         loopTimeMultiplier = x;

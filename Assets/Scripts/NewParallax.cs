@@ -15,7 +15,15 @@ public class NewParallax : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        if (transform.parent.name == "Scenery")
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+        else if (transform.parent.name == "SceneryP2")
+        {
+            player = GameObject.FindGameObjectWithTag("Player2");
+        }
+
 
         if (player) 
         { 

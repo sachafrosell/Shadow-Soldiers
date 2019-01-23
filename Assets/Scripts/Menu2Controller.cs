@@ -27,7 +27,16 @@ public class Menu2Controller : MonoBehaviour
             col += 0.01f;
             yield return new WaitForSeconds(0.01f);
         }
-        SceneManager.LoadScene("NewLevel", LoadSceneMode.Single);
+        if (GameSettingsStaticController.SinglePlayer)
+        {
+            SceneManager.LoadScene("NewLevel", LoadSceneMode.Single);
+        }
+        else
+        {
+            //SceneManager.LoadScene("MultiPlayer", LoadSceneMode.Single);
+            SceneManager.LoadScene("LocalMultiDisplay", LoadSceneMode.Single);
+
+        }
         gameObject.SetActive(false);
     }
 

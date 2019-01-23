@@ -5,12 +5,12 @@ using UnityEngine;
 public class TargetController : MonoBehaviour
 {
 
-    public Camera cam;
     public float trackingSpeed;
     public bool externalController = true;
     public bool singlePlayer;
     public bool menu;
 
+    private Camera cam;
     private GameObject player;
     private GameObject closestBird;
     private SpriteRenderer spriteRenderer;
@@ -28,11 +28,11 @@ public class TargetController : MonoBehaviour
 
     private void Start()
     {
-        //cam = Camera.FindObjectOfType(Camera);
+        cam = Camera.main;
         Cursor.visible = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player");
-        playerStart = player.transform.position.x;
+
         targetStart = transform.position.x;
 
     }
@@ -79,6 +79,11 @@ public class TargetController : MonoBehaviour
     void Update()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        if (player)
+        {
+            playerStart = player.transform.position.x;
+        }
 
         if (!menu && player && externalController)
         {

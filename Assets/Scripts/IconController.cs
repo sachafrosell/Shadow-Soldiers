@@ -31,7 +31,7 @@ public class IconController : MonoBehaviour
                 StartCoroutine(OpacitySlider(single));
             }
 
-            transform.position = new Vector3(player.transform.position.x - 0.75f, player.transform.position.y - 4.75f);
+            //transform.position = new Vector3(player.transform.position.x - 0.75f, player.transform.position.y - 4.75f);
 
             if (externalController)
             {

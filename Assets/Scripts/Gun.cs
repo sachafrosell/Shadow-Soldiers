@@ -16,8 +16,8 @@ public class Gun : MonoBehaviour
     public float rocketReloadTime;
     public string weapon;
     public bool externalController;
+    public GameObject target;
 
-    private GameObject target;
     private Vector3 mousePos;
     private Shake shake;
     private int selector;
@@ -36,7 +36,7 @@ public class Gun : MonoBehaviour
         weapons[2] = "burst";
         weapons[3] = "rocket";
         //shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
-        target = GameObject.FindGameObjectWithTag("Target");
+        //target = GameObject.FindGameObjectWithTag("Target");
 
     }
 

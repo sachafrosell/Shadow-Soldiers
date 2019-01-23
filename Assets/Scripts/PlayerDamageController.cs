@@ -44,7 +44,11 @@ public class PlayerDamageController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        healthBar.transform.position = new Vector3(player.transform.position.x + 0.8f, -8.5f);
+        if (player)
+        {
+            healthBar.transform.position = new Vector3(player.transform.position.x + 0.8f, -8.5f);
+        }
+
         if (hits >= 100)
         {
             Destroy(healthBar);

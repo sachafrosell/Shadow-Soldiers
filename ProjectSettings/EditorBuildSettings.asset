@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 27aac684ebb164734a78a24ae382cdfb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1.unity
     guid: 9a6486c5016aa4fafa64acdcaadd9939
   - enabled: 0
@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewLevel.unity
     guid: ae7b971707c5a4814a5f56672bebd309
+  - enabled: 1
+    path: Assets/Scenes/MultiPlayer.unity
+    guid: c5280204b1f1f4665878b1897d7d2519
+  - enabled: 1
+    path: Assets/Scenes/LocalMultiPlayer.unity
+    guid: 63dcae59f85614da9afd9d28bbe4e56c
+  - enabled: 1
+    path: Assets/Scenes/LocalMultiDisplay.unity
+    guid: 7db28598684b742f0b09ab2809b9ef3b
   m_configObjects: {}

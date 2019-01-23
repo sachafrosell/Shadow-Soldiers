@@ -18,7 +18,7 @@ public class GameOverController : MonoBehaviour
 
     void Start()
     {
-
+        singlePlayer = GameSettingsStaticController.SinglePlayer;
         col = 1;
         spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(Dimmer());
@@ -70,11 +70,14 @@ public class GameOverController : MonoBehaviour
 
         if (!player)
         {
-            StartCoroutine(GameOver());
-            if (Score > HighScore)
+            if (singlePlayer)
             {
-                HighScore = Score;
-                PlayerPrefs.SetInt("HighScore", HighScore);
+                StartCoroutine(GameOver());
+                if (Score > HighScore)
+                {
+                    HighScore = Score;
+                    PlayerPrefs.SetInt("HighScore", HighScore);
+                }
             }
         }
     }

@@ -13,6 +13,9 @@ public class BackgroundPositionController : MonoBehaviour
 
     void Update()
     {
-        transform.position = new Vector3(player.transform.position.x, transform.position.y);
+        if (player)
+        {
+            transform.position = new Vector3(player.transform.position.x, transform.position.y);
+        }
     }
 }

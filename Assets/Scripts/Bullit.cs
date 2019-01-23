@@ -20,6 +20,7 @@ public class Bullit : MonoBehaviour
 
     void Start()
     {
+
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Target");
         player = GameObject.FindGameObjectWithTag("Player");
@@ -65,6 +66,7 @@ public class Bullit : MonoBehaviour
                 Destroy(collision.gameObject);
                 if (singlePlayer)
                 {
+                    //print("hit");
                     Instantiate(enemy, new Vector3(player.transform.position.x + rand, 10f), Quaternion.identity);
                 }
                 break;

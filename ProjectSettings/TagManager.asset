@@ -21,6 +21,10 @@ TagManager:
   - Lightning
   - Target2
   - Player2
+  - Target1
+  - HealthBar1
+  - HealthBar2
+  - BulletP1
   layers:
   - Default
   - TransparentFX
@@ -41,11 +45,11 @@ TagManager:
   - Enemy
   - Player
   - Projectile
-  - 
-  - 
-  - 
-  - 
-  - 
+  - P1 Cam
+  - P2 Cam
+  - P1 Scenery
+  - P2 Scenery
+  - Target2
   - 
   - 
   - 

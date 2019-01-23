@@ -117,7 +117,7 @@ MonoBehaviour:
   explosion: {fileID: 4189832422374030315, guid: 68e4a7bad15ac4e77bc8714aa65fd4ef,
     type: 3}
   sqwuak: {fileID: 2208524523988960740, guid: 885acb17c929447bfbf68ad6be19eb91, type: 3}
-  enemy: {fileID: 163603758192444343, guid: c03742e4ae0704107a7eeb0aca374aa6, type: 3}
+  enemy: {fileID: 140, guid: c03742e4ae0704107a7eeb0aca374aa6, type: 3}
   singlePlayer: 0
 --- !u!61 &2261577178368082619
 BoxCollider2D:
