@@ -7,6 +7,7 @@ public class P2DamageController : MonoBehaviour
 
     private float hits;
     private GameObject healthBar;
+    private GameObject[] healthBars;
     private Vector3 healthBarOriginalScale;
     private Vector3 newHealthBarScale;
     private GameObject player;
@@ -21,8 +22,9 @@ public class P2DamageController : MonoBehaviour
         col = 0;
         hits = 0;
         healthBar = GameObject.FindGameObjectWithTag("HealthBar2");
+        healthBars = GameObject.FindGameObjectsWithTag("HealthBar2");
         spriteRenderer = healthBar.GetComponent<SpriteRenderer>();
-        StartCoroutine(OpacitySlider());
+        //StartCoroutine(OpacitySlider());
         healthBarOriginalScale = healthBar.transform.localScale;
         hBY = healthBarOriginalScale.y;
         step = hBY / 100;
@@ -51,7 +53,10 @@ public class P2DamageController : MonoBehaviour
 
         if (hits >= 100)
         {
-            Destroy(healthBar);
+            for (int i = 0; i < healthBars.Length; i++)
+            {
+                Destroy(healthBars[i]);
+            }
             Destroy(gameObject);
         }
 
@@ -59,7 +64,10 @@ public class P2DamageController : MonoBehaviour
         {
             GameSettingsStaticController.birds = false;
             newHealthBarScale = new Vector3(healthBar.transform.localScale.x + (2 * step), healthBarOriginalScale.y, healthBarOriginalScale.z);
-            healthBar.transform.localScale = newHealthBarScale;
+            for (int i = 0; i < healthBars.Length; i++)
+            {
+                healthBars[i].transform.localScale = newHealthBarScale;
+            }
             hits--;
         }
     }
@@ -71,7 +79,10 @@ public class P2DamageController : MonoBehaviour
             case "Bullet":
                 hits += 2;
                 newHealthBarScale = new Vector3(healthBar.transform.localScale.x - 5 * step, healthBarOriginalScale.y, healthBarOriginalScale.z);
-                healthBar.transform.localScale = newHealthBarScale;
+                for (int i = 0; i < healthBars.Length; i++)
+                {
+                    healthBars[i].transform.localScale = newHealthBarScale;
+                }
                 break;
             case "Rocket":
                 hits += 8;
@@ -90,12 +101,15 @@ public class P2DamageController : MonoBehaviour
     {
         switch (collision.gameObject.tag)
         {
-            case "EnemyBullet":
+            case "Bullet":
                 hits += 2;
                 newHealthBarScale = new Vector3(healthBar.transform.localScale.x - 5 * step, healthBarOriginalScale.y, healthBarOriginalScale.z);
-                healthBar.transform.localScale = newHealthBarScale;
+                for (int i = 0; i < healthBars.Length; i++)
+                {
+                    healthBars[i].transform.localScale = newHealthBarScale;
+                }
                 break;
-            case "EnemyRocket":
+            case "Rocket":
                 hits += 8;
                 newHealthBarScale = new Vector3(healthBar.transform.localScale.x - 17 * step, healthBarOriginalScale.y, healthBarOriginalScale.z);
                 healthBar.transform.localScale = newHealthBarScale;

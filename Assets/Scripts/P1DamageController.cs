@@ -7,6 +7,8 @@ public class P1DamageController : MonoBehaviour
 
     private float hits;
     private GameObject healthBar;
+    private GameObject[] healthBars;
+    private SpriteRenderer[] spriteRenderers;
     private Vector3 healthBarOriginalScale;
     private Vector3 newHealthBarScale;
     private GameObject player;
@@ -21,8 +23,9 @@ public class P1DamageController : MonoBehaviour
         col = 0;
         hits = 0;
         healthBar = GameObject.FindGameObjectWithTag("HealthBar1");
+        healthBars = GameObject.FindGameObjectsWithTag("HealthBar1");
+    
         spriteRenderer = healthBar.GetComponent<SpriteRenderer>();
-        StartCoroutine(OpacitySlider());
         healthBarOriginalScale = healthBar.transform.localScale;
         hBY = healthBarOriginalScale.y;
         step = hBY / 100;
@@ -30,28 +33,17 @@ public class P1DamageController : MonoBehaviour
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
     }
 
-    IEnumerator OpacitySlider()
-    {
-        yield return new WaitForSeconds(2f);
-        for (int i = 0; i < 50; i++)
-        {
-            spriteRenderer.color = new Color(1f, 1f, 1f, col);
-            col += 0.01f;
-            yield return new WaitForSeconds(0.001f);
-        }
-
-    }
 
     private void FixedUpdate()
     {
-        if (player)
-        {
-            healthBar.transform.position = new Vector3(player.transform.position.x + 0.8f, -8.5f);
-        }
+
 
         if (hits >= 100)
         {
-            Destroy(healthBar);
+            for (int i = 0; i < healthBars.Length; i++)
+            {
+                Destroy(healthBars[i]);
+            }
             Destroy(gameObject);
         }
 
@@ -59,7 +51,10 @@ public class P1DamageController : MonoBehaviour
         {
             GameSettingsStaticController.birds = false;
             newHealthBarScale = new Vector3(healthBar.transform.localScale.x + (2 * step), healthBarOriginalScale.y, healthBarOriginalScale.z);
-            healthBar.transform.localScale = newHealthBarScale;
+            for (int i = 0; i < healthBars.Length; i++)
+            {
+                healthBars[i].transform.localScale = newHealthBarScale;
+            }
             hits--;
         }
     }
@@ -71,7 +66,10 @@ public class P1DamageController : MonoBehaviour
             case "EnemyBullet":
                 hits += 2;
                 newHealthBarScale = new Vector3(healthBar.transform.localScale.x - 5 * step, healthBarOriginalScale.y, healthBarOriginalScale.z);
-                healthBar.transform.localScale = newHealthBarScale;
+                for (int i = 0; i < healthBars.Length; i++)
+                {
+                    healthBars[i].transform.localScale = newHealthBarScale;
+                }
                 break;
             case "EnemyRocket":
                 hits += 8;
@@ -93,7 +91,10 @@ public class P1DamageController : MonoBehaviour
             case "EnemyBullet":
                 hits += 2;
                 newHealthBarScale = new Vector3(healthBar.transform.localScale.x - 5 * step, healthBarOriginalScale.y, healthBarOriginalScale.z);
-                healthBar.transform.localScale = newHealthBarScale;
+                for (int i = 0; i < healthBars.Length; i++)
+                {
+                    healthBars[i].transform.localScale = newHealthBarScale;
+                }
                 break;
             case "EnemyRocket":
                 hits += 8;

@@ -13,7 +13,7 @@ public class spawnBirds : MonoBehaviour
     void Start()
     {
         //print("bird");
-        Instantiate(bird, new Vector3(-30f, 5f, 0f), Quaternion.identity);
+        Instantiate(bird, new Vector3(-150f, 5f, 0f), Quaternion.identity);
         StartCoroutine(Spawn());
     }
 
