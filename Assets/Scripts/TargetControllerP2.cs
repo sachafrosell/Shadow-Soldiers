@@ -9,8 +9,8 @@ public class TargetControllerP2 : MonoBehaviour
     public bool externalController;
     public bool singlePlayer;
     public bool menu;
+    public Camera cam;
 
-    private Camera cam;
     private GameObject player;
     private GameObject closestBird;
     private SpriteRenderer spriteRenderer;
@@ -30,10 +30,10 @@ public class TargetControllerP2 : MonoBehaviour
     {
         externalController = GameSettingsStaticController.ExternalController;
         singlePlayer = GameSettingsStaticController.SinglePlayer;
-        cam = Camera.main;
+        //cam = Camera.main;
         Cursor.visible = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player2");
 
         targetStart = transform.position.x;
 

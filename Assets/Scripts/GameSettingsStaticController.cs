@@ -6,6 +6,10 @@ public static class GameSettingsStaticController
 {
     public static float loopTimeMultiplier = 1;
 
+    public static bool Level { get; set; }
+
+    public static bool SplitScreen { get; set; }
+
     public static bool Start { get; set; }
 
     public static float enemySpawnRate = 1;

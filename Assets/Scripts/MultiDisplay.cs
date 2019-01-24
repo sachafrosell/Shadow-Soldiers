@@ -7,12 +7,11 @@ public class MultiDisplay : MonoBehaviour
 
     void Start()
     {
-        print(Display.displays.Length);
-        //for (int i = 0; i < Display.displays.Length; i++)
-        //{
-        //    Display.displays[i].Activate();
-        //}
-        Display.displays[1].Activate();
+        for (int i = 0; i < Display.displays.Length; i++)
+        {
+            Display.displays[i].Activate();
+        }
+        //Display.displays[1].Activate();
     }
 
    

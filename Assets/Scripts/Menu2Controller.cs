@@ -7,7 +7,8 @@ public class Menu2Controller : MonoBehaviour
 {
 
     public GameObject background;
-    //public GameObject menu2;
+    public GameObject selectSound;
+
 
     private SpriteRenderer spriteRenderer;
     private float col;
@@ -29,20 +30,38 @@ public class Menu2Controller : MonoBehaviour
         }
         if (GameSettingsStaticController.SinglePlayer)
         {
-            SceneManager.LoadScene("NewLevel", LoadSceneMode.Single);
+            float rand = Random.Range(0, 10);
+            if (GameSettingsStaticController.Level)
+            {
+                print("hitting");
+                SceneManager.LoadScene("NewLevel", LoadSceneMode.Single);
+            }
+            else 
+            {
+                //print("Hittingl2");
+                SceneManager.LoadScene("RedLevel", LoadSceneMode.Single);
+            }
+            
         }
         else
         {
-            //SceneManager.LoadScene("MultiPlayer", LoadSceneMode.Single);
-            SceneManager.LoadScene("LocalMultiDisplay", LoadSceneMode.Single);
-
+            if (GameSettingsStaticController.SplitScreen)
+            {
+                SceneManager.LoadScene("LocalMultiPlayer", LoadSceneMode.Single);
+            }
+            else
+            {
+                SceneManager.LoadScene("LocalMultiDisplay", LoadSceneMode.Single);
+            }
+           
         }
         gameObject.SetActive(false);
     }
 
     private void StartGame()
     {
-        //SceneManager.LoadScene("Level1", LoadSceneMode.Single);
+
+        Instantiate(selectSound, transform.position, Quaternion.identity);
         GameSettingsStaticController.Start = true;
         GameSettingsStaticController.FadeOut = true;
         StartCoroutine(OpacitySlider2());
@@ -60,7 +79,5 @@ public class Menu2Controller : MonoBehaviour
         GameSettingsStaticController.ExternalController = false;
         StartGame();
     }
-
-
 
 }
