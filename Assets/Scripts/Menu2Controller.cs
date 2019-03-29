@@ -15,6 +15,7 @@ public class Menu2Controller : MonoBehaviour
 
     void Start()
     {
+        GameSettingsStaticController.FadeOut = false;
         col = 0;
         spriteRenderer = background.GetComponent<SpriteRenderer>();
     }
@@ -31,17 +32,22 @@ public class Menu2Controller : MonoBehaviour
         if (GameSettingsStaticController.SinglePlayer)
         {
             float rand = Random.Range(0, 10);
-            if (GameSettingsStaticController.Level)
+            if (GameSettingsStaticController.Level == "Level1")
             {
                 print("hitting");
                 SceneManager.LoadScene("NewLevel", LoadSceneMode.Single);
             }
-            else 
+            else if (GameSettingsStaticController.Level == "Level2")
             {
                 //print("Hittingl2");
                 SceneManager.LoadScene("RedLevel", LoadSceneMode.Single);
             }
-            
+            else if (GameSettingsStaticController.Level == "Level3")
+            {
+                //print("Hittingl2");
+                SceneManager.LoadScene("BlueLevel", LoadSceneMode.Single);
+            }
+
         }
         else
         {

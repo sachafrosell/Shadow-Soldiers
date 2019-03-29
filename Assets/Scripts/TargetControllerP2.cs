@@ -91,7 +91,6 @@ public class TargetControllerP2 : MonoBehaviour
         {
             FindClosestBird();
             IsEnemyOnScreen();
-            //transform.position = new Vector3(targetStart + (player.transform.position.x - playerStart), transform.position.y);
         }
         if (externalController)
         {

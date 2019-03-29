@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RedLevel.unity
     guid: e9255fc879e5d4f5c9721c88e43b2861
+  - enabled: 1
+    path: Assets/Scenes/BlueLevel.unity
+    guid: a4a468b98f10d4a2f8f3adcbe4c48970
   m_configObjects: {}

@@ -110,7 +110,7 @@ public class MenuController : MonoBehaviour
         menu1.SetActive(false);
         menu2.SetActive(true);
         menu3.SetActive(false);
-        GameSettingsStaticController.Level = true;
+        GameSettingsStaticController.Level = "Level1";
         eventSystem.SetSelectedGameObject(externalButton);
     }
 
@@ -122,7 +122,19 @@ public class MenuController : MonoBehaviour
         menu1.SetActive(false);
         menu2.SetActive(true);
         menu3.SetActive(false);
-        GameSettingsStaticController.Level = false;
+        GameSettingsStaticController.Level = "Level2";
+        eventSystem.SetSelectedGameObject(externalButton);
+    }
+
+    public void Level3()
+    {
+        Instantiate(selectSound, transform.position, Quaternion.identity);
+        gameObject.SetActive(false);
+        settingsMenu.SetActive(false);
+        menu1.SetActive(false);
+        menu2.SetActive(true);
+        menu3.SetActive(false);
+        GameSettingsStaticController.Level = "Level3";
         eventSystem.SetSelectedGameObject(externalButton);
     }
 

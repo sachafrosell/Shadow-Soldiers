@@ -5,7 +5,9 @@ using UnityEngine.Networking;
 
 public class BulletController_Net : NetworkBehaviour
 {
+
     public float speed = 20f;
+
     public bool singlePlayer;
     public GameObject explosion;
     public GameObject sqwuak;
